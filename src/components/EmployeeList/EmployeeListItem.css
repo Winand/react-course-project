@@ -1,7 +1,6 @@
 .employee-list-item {
-    /* по вертикали отступ 5px, по горизонтали 15px */
-    padding: 5px 15px;
-    margin: 2px 4px;
+    padding: 5px 15px; /* внутренние отступы по вертикали и по горизонтали */
+    margin: 2px 4px; /* внешние отступы по вертикали и по горизонтали */
     border: solid #e2e2e280 1px;
     border-radius: 5px;
     display: flex;
