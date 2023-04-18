@@ -1,6 +1,7 @@
 .employee-list-item {
     padding: 5px 15px; /* внутренние отступы по вертикали и по горизонтали */
     margin: 2px 4px; /* внешние отступы по вертикали и по горизонтали */
+    background-color: white;
     border: solid #e2e2e280 1px;
     border-radius: 5px;
     display: flex;

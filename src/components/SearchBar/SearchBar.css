@@ -1,0 +1,15 @@
+.search-bar {
+    width: calc(100% - 2*4px);
+    box-sizing: border-box; /* https://stackoverflow.com/a/8951709 */
+    border-radius: 8px;
+    border: solid #e2e2e280 2px;
+    padding: 8px; /* внутренние отступы */
+    margin: 4px 4px; /* внешние отступы по вертикали и по горизонтали */
+    outline: none; /* https://stackoverflow.com/a/32576706 */
+}
+
+.search-bar:focus {
+    /* StackOverflow color */
+    border: solid #6bbbf7 2px;
+    box-shadow: 0 0 0 2px hsla(206, 100%, 40%, .15);
+}

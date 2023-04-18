@@ -1,3 +1,5 @@
+import './SearchBar.css'
+
 export const SearchBar = () => {
-    return (<input type="text"/>)
+    return (<input className="search-bar" type="text" placeholder="🔎︎ Search..."/>)
 }
