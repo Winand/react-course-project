@@ -1,8 +1,8 @@
-import { formatUserName } from '../../utils'
+import { formatUserName } from '../../../utils'
 import './EmployeeListItem.css'
 
-export const EmpoyeeListItem = ({user}) => {
-    return (<div className='employee-list-item'>
+export const EmployeeListItem = ({user, onClick}) => {
+    return (<div className='employee-list-item' onClick={() => onClick(user)}>
         <div className='avatar'>{user.avatar}</div>
         <div className='user-info'>
             <div className='employee-name'>{formatUserName(user)}</div>

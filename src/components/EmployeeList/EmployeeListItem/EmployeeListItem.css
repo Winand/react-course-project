@@ -5,6 +5,7 @@
     border: solid #e2e2e280 1px;
     border-radius: 5px;
     display: flex;
+    cursor: pointer; /* ссылка */
 }
 
 .employee-list-item .avatar {
@@ -13,7 +14,7 @@
     border-radius: 30px; /* половина размера стороны */
     background-color: #e2e2e2;
     background-size: cover; /* https://www.w3schools.com/cssref/css3_pr_background-size.php */
-    background-image: url("../../../public/default_avatar.png");
+    background-image: url("../../../../public/default_avatar.png");
 }
 
 .employee-list-item .user-info {

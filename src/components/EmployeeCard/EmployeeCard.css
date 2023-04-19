@@ -1,0 +1,42 @@
+.employee-page-wrapper {
+
+}
+
+.employee-page-wrapper .employee-info-wrapper {
+
+}
+
+.employee-page-wrapper .employee-info-wrapper .employee-badge {
+    padding: 5px 15px; /* внутренние отступы по вертикали и по горизонтали */
+    margin: 2px 4px; /* внешние отступы по вертикали и по горизонтали */
+    background-color: white;
+    border: solid #e2e2e280 1px;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer; /* ссылка */
+}
+
+.employee-page-wrapper .employee-info-wrapper .employee-badge .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px; /* половина размера стороны */
+    background-color: #e2e2e2;
+    background-size: cover; /* https://www.w3schools.com/cssref/css3_pr_background-size.php */
+    background-image: url("../../../public/default_avatar.png");
+}
+
+.employee-page-wrapper .employee-info-wrapper .employee-badge .user-info {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.employee-list-item .employee-position {
+    color: gray;
+}
+
+.employee-page-wrapper .employee-info-wrapper .info-item {
+    padding: 15px;
+    margin-bottom: 5px; /* чтобы не слипались */
+    border: solid #e3e3e3 1px;
+    border-radius: 5px;
+}
