@@ -12,6 +12,8 @@
     height: 60px;
     border-radius: 30px; /* половина размера стороны */
     background-color: #e2e2e2;
+    background-size: cover; /* https://www.w3schools.com/cssref/css3_pr_background-size.php */
+    background-image: url("../../../public/default_avatar.png");
 }
 
 .employee-list-item .user-info {
