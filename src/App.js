@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {EmployeeList} from './components/EmployeeList';
 import {EmployeeCard} from './components/EmployeeCard';
 import './App.css';

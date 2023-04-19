@@ -23,8 +23,6 @@ export const EmployeeCard = () => {
         }
     }, [employeeId, setEmployee])
 
-    const currentEmployee = {};
-
     return (<div className="employee-page-wrapper">
         <EmployeeCardHeader onGoBack={onGoBack} />
         {employee ? (

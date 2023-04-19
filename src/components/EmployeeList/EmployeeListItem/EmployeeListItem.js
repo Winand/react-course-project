@@ -8,7 +8,7 @@ export const EmployeeListItem = ({ user }) => {
     /* useCalllback, т. к. useNavigate - это хук (начинается с "use") */
     const onClick = useCallback(() => {
         navigate(`/employee/${user.id}`)
-    }, [navigate]);
+    }, [navigate, user.id]);
 
     return (<div className='employee-list-item' onClick={() => onClick(user)}>
         <div className='avatar'>{user.avatar}</div>
