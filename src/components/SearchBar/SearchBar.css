@@ -1,5 +1,5 @@
 .search-bar {
-    width: calc(100% - 2*4px);
+    width: calc(100% - 2*4px); /* https://stackoverflow.com/a/50555546 */
     box-sizing: border-box; /* https://stackoverflow.com/a/8951709 */
     border-radius: 8px;
     border: solid #e2e2e280 2px;
