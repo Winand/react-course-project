@@ -2,22 +2,23 @@ import { useState } from 'react'
 import {EmployeeList} from './components/EmployeeList';
 import {EmployeeCard} from './components/EmployeeCard';
 import './App.css';
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
 function App() {
-  const [currentEmployee, setCurrentEmployee] = useState(undefined);
-
-  const onItemClick = (user) => {
-    console.log(user);
-    setCurrentEmployee(user);
-  }
-
-  const onGoBackClick = () => {
-    setCurrentEmployee(undefined);
-  }
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <EmployeeList/>
+    },
+    {
+      path: "employee/:employeeId",
+      element: <EmployeeCard/>
+    }
+  ])
 
   return (
     <div className="App">
-      {currentEmployee ? <EmployeeCard currentEmployee={currentEmployee} onGoBack={onGoBackClick}/> : <EmployeeList onItemClick={onItemClick}/>}
+      <RouterProvider router={router}/>
     </div>
   );
 }

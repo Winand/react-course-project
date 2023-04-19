@@ -1,14 +1,33 @@
+import { useNavigate, useParams } from 'react-router-dom'
+import { useCallback, useEffect, useState } from 'react';
 import { EmployeeFullData as data } from "../../store/EmployeeFullData"
 import { EmployeeCardHeader } from "./EmployeeCardHeader"
 import { formatUserName } from '../../utils'
 import "./EmployeeCard.css"
 
-export const EmployeeCard = ({ currentEmployee, onGoBack }) => {
-    /* ищем пользователя, потому что другой источник данных с большим числом полей */
-    const employee = data.find(el=>el.id === currentEmployee?.id)
-    console.log(employee.name)
+export const EmployeeCard = () => {
+    const navigate = useNavigate();
+    const {employeeId} = useParams();
+    const [employee, setEmployee] = useState();
+
+    /* useCalllback, т. к. useNavigate - это хук (начинается с "use") */
+    const onGoBack = useCallback(() => {
+        navigate(-1)
+    }, [navigate]);
+
+    useEffect(()=>{
+        if(employeeId) {
+            console.log(employeeId);
+            /* ищем пользователя, потому что другой источник данных с большим числом полей */
+            setEmployee(data.find(el=>el.id === Number(employeeId)));
+        }
+    }, [employeeId, setEmployee])
+
+    const currentEmployee = {};
+
     return (<div className="employee-page-wrapper">
         <EmployeeCardHeader onGoBack={onGoBack} />
+        {employee ? (
         <div className="employee-info-wrapper">
             <div className='employee-badge'>
                 <div className='avatar'>{employee.avatar}</div>
@@ -34,5 +53,8 @@ export const EmployeeCard = ({ currentEmployee, onGoBack }) => {
                 <div className="value">{employee.phone.sms}</div>
             </div>
         </div>
+        ) : (
+        <div>NO EMPLOYEE</div>
+        )}
     </div>)
 }
