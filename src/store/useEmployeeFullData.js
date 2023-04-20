@@ -50,7 +50,7 @@ export const useEmployeeFullData = () => {
                 setIsFetching(false);
                 setData(employee);
             }
-        }, 1500);
+        }, 750);
     }
 
     return {

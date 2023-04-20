@@ -36,7 +36,7 @@ export const useEmployeeList = () => {
                     setIsFetching(false);
                     setData(mock);
                 }
-            }, 1500);
+            }, 500);
         }
 
         if(!data && !isFetching && !isLoaded) {
