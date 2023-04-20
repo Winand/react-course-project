@@ -31,7 +31,7 @@ export const useEmployeeList = () => {
                     setIsFetching(false);
                     setData(undefined);
                 } else {
-                    setIsError(true);
+                    setIsError(false);
                     setIsLoaded(true);
                     setIsFetching(false);
                     setData(mock);

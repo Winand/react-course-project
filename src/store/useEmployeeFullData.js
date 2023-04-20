@@ -45,7 +45,7 @@ export const useEmployeeFullData = () => {
                 setIsFetching(false);
                 setData(undefined);
             } else {
-                setIsError(true);
+                setIsError(false);
                 setIsLoaded(true);
                 setIsFetching(false);
                 setData(employee);
