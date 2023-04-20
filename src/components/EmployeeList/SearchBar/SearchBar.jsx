@@ -2,13 +2,13 @@ import { useCallback, useState } from 'react';
 import './SearchBar.css'
 
 export const SearchBar = () => {
-    const [isSearchDisables, setIsSearchDisables] = useState(false);
+    const [isSearchDisabled, setIsSearchDisabled] = useState(false);
     const doSearch = useCallback(() => {
-        setIsSearchDisables(true);
-        setTimeout(() => {setIsSearchDisables(false)}, 2000);
-    }, [setIsSearchDisables]);
+        setIsSearchDisabled(true);
+        setTimeout(() => {setIsSearchDisabled(false)}, 2000);
+    }, [setIsSearchDisabled]);
     return (<div className='search-wrapper'>
-        <input className="search-bar" type="text" placeholder="🔎︎ Search..." disabled={isSearchDisables}/>
-        <button className="search-button" disabled={isSearchDisables} onClick={doSearch}>Find</button>
+        <input className="search-bar" type="text" placeholder="🔎︎ Search..." disabled={isSearchDisabled}/>
+        <button className="search-button" disabled={isSearchDisabled} onClick={doSearch}>Find</button>
     </div>)
 }
