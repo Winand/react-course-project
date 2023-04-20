@@ -1,11 +1,23 @@
-import { EmployeeList as data } from '../../store/EmployeeList'
+import { useEffect } from 'react';
+import { useEmployeeList as data, useEmployeeList } from '../../store/useEmployeeList'
 import { EmployeeListItem } from './EmployeeListItem';
-// import {Header} from './Header';
-// import {SearchBar} from './SearchBar';
 
 export const EmployeeList = ({onItemClick}) => {
-    const userList = data.map(
+    const {data, isFetching, isLoaded, refetch, isError} = useEmployeeList();
+
+    // useEffect(()=>{
+    //     if(!data && !isFetching && !isLoaded) {
+    //         refetch();
+    //     }
+    // }, [data, isFetching, isLoaded, refetch]);
+
+    // const userList = data.map(
+    //     (user, i)=><EmployeeListItem user={user} key={`${i}-${user.name}`} onClick={onItemClick} />
+    // )
+    return (<div className='employee-list-wrapper'>
+        {isFetching && <>Data loading...</>}
+        {(!isFetching && isLoaded) && data.map(
         (user, i)=><EmployeeListItem user={user} key={`${i}-${user.name}`} onClick={onItemClick} />
-    )
-    return (<div className='employee-list-wrapper'>{userList}</div>)
+    )}
+    </div>)
 }

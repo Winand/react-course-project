@@ -1,24 +1,24 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useCallback, useEffect, useState } from 'react';
-import { EmployeeFullData as data } from "../../store/EmployeeFullData"
+import { useEmployeeFullData as data, useEmployeeFullData } from "../../store/useEmployeeFullData"
 // import { EmployeeCardHeader } from "./EmployeeCardHeader"
 import { formatUserName } from '../../utils'
 import "./EmployeeCard.css"
 
 export const EmployeeCard = () => {
     const {employeeId} = useParams();
-    const [employee, setEmployee] = useState();
+
+    const {data: employee, isFetching, isLoaded, getEmployee} = useEmployeeFullData()
 
     useEffect(()=>{
-        if(employeeId) {
-            /* ищем пользователя, потому что другой источник данных с большим числом полей */
-            setEmployee(data.find(el=>el.id === Number(employeeId)));
+        if(!employee && !isFetching && !isLoaded && employeeId) {
+            getEmployee(employeeId);
         }
-    }, [employeeId, setEmployee])
+    }, [data, isFetching, isLoaded, getEmployee, employeeId])
 
     return (<div className="employee-page-wrapper">
         {/* <EmployeeCardHeader onGoBack={onGoBack} /> */}
-        {employee ? (
+        {employee && (
         <div className="employee-info-wrapper">
             <div className='employee-badge'>
                 <div className='avatar'>{employee.avatar}</div>
@@ -44,8 +44,9 @@ export const EmployeeCard = () => {
                 <div className="value">{employee.phone.sms}</div>
             </div>
         </div>
-        ) : (
-        <div>NO EMPLOYEE</div>
         )}
+
+        {(!employee && isFetching) && (<>Employee data loading...</>)}
+        {(!employee && !isFetching && isLoaded) && (<>No employee data</>)}
     </div>)
 }
