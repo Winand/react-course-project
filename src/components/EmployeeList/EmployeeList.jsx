@@ -1,23 +1,24 @@
-import { useEffect } from 'react';
+import { useCallback } from 'react';
 import { useEmployeeList } from '../../store/useEmployeeList';
 import { EmployeeListItem } from './EmployeeListItem';
 
-export const EmployeeList = ({onItemClick}) => {
-    const {data, isFetching, isLoaded, refetch, isError} = useEmployeeList();
+export const EmployeeList = () => {
+    const {data, isFetching, isLoaded} = useEmployeeList();
 
-    // useEffect(()=>{
-    //     if(!data && !isFetching && !isLoaded) {
-    //         refetch();
-    //     }
-    // }, [data, isFetching, isLoaded, refetch]);
+    // Чтобы при изменении переменных заново происходил рендеринг,
+    // используем useCallback со списком отслеживаемых переменных
+    const prepareList = useCallback(() => {
+        if (isFetching) {
+            return <>Data loading...</>;
+        } else if (!isFetching && isLoaded && data) {
+            return <>{data.map((user, i) =>
+                <EmployeeListItem user={user} key={`${i}-${user.name}`} />
+            )}</>;
+        }
+        return <>No data.</>;
+    }, [data, isFetching, isLoaded]);
 
-    // const userList = data.map(
-    //     (user, i)=><EmployeeListItem user={user} key={`${i}-${user.name}`} onClick={onItemClick} />
-    // )
     return (<div className='employee-list-wrapper'>
-        {isFetching && <>Data loading...</>}
-        {(!isFetching && isLoaded) && data.map(
-        (user, i)=><EmployeeListItem user={user} key={`${i}-${user.name}`} onClick={onItemClick} />
-    )}
+        {prepareList()}
     </div>)
 }
