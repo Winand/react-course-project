@@ -1,5 +1,5 @@
-import {EmployeeList} from './components/EmployeeList';
-import {EmployeeCard} from './components/EmployeeCard';
+import {MainPage} from './pages/MainPage';
+import {EmployeeCardPage} from './pages/EmployeeCardPage';
 import './App.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
@@ -7,11 +7,11 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <EmployeeList/>
+      element: <MainPage/>
     },
     {
       path: "employee/:employeeId",
-      element: <EmployeeCard/>
+      element: <EmployeeCardPage/>
     }
   ])
 

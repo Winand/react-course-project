@@ -1,0 +1,23 @@
+.page-header-wrapper {
+    display: flex;
+    font-size: 30px;
+    margin-bottom: 5px;
+
+    font-size: 25px;
+    font-weight: bold;
+    color: azure;
+    text-shadow: white 1px 0 10px;
+    background-color: indianred;
+    padding: 8px;
+}
+
+.page-header-wrapper .button-back {
+    width: 30px;
+    text-align: center;
+    cursor: pointer; /* ссылка */
+}
+
+.page-header-wrapper .header-text {
+    text-align: center;
+    flex: 1;
+}
