@@ -1,1 +1,1 @@
-export * from './EmployeeCardHeader'
+export * from './EmployeeCardHeader';

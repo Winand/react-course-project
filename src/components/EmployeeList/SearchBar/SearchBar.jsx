@@ -7,8 +7,8 @@ export const SearchBar = () => {
         setIsSearchDisables(true);
         setTimeout(() => {setIsSearchDisables(false)}, 2000);
     }, [setIsSearchDisables]);
-    return (<div>
+    return (<div className='search-wrapper'>
         <input className="search-bar" type="text" placeholder="🔎︎ Search..." disabled={isSearchDisables}/>
-        <button disabled={isSearchDisables} onClick={doSearch}>Find</button>
+        <button className="search-button" disabled={isSearchDisables} onClick={doSearch}>Find</button>
     </div>)
 }
