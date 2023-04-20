@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useEmployeeFullData as data, useEmployeeFullData } from "../../store/useEmployeeFullData";
+import { useEmployeeFullData } from "../../store/useEmployeeFullData";
 import "./EmployeeCard.css";
 import { useEffect } from 'react';
 import { formatUserName } from '../../utils'
@@ -14,7 +14,7 @@ export const EmployeeCard = () => {
         if(!employee && !isFetching && !isLoaded && employeeId) {
             getEmployee(employeeId);
         }
-    }, [data, isFetching, isLoaded, getEmployee, employeeId]);
+    }, [employee, isFetching, isLoaded, getEmployee, employeeId]);
 
     return (<div className="employee-page-wrapper">
         {employee && (
