@@ -7,7 +7,7 @@ export const EmployeeCardPage = () => {
     const navigate = useNavigate();
     /* useCalllback, т. к. useNavigate - это хук (начинается с "use") */
     const onGoBack = useCallback(() => {
-        navigate(-1);
+        navigate('/');
     }, [navigate]);
 
     return (<>
