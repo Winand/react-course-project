@@ -1,1 +1,1 @@
-export * from "./formatUserName"
+export * from "./formatUserName";

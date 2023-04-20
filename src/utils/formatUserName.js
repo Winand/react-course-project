@@ -1,3 +1,3 @@
 export const formatUserName = (user) => {
-    return `${user.name.toUpperCase()}`
+    return `${user.name.toUpperCase()}`;
 }

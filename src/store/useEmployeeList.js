@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 const mock = [
     {
@@ -42,7 +42,7 @@ export const useEmployeeList = () => {
         if(!data && !isFetching && !isLoaded) {
             refetch();
         }
-        
+
         // return new Promise((resolve, reject)=>{
         //     setTimeout(()=>{
         //         if(typeof mock === 'string') {
@@ -55,9 +55,9 @@ export const useEmployeeList = () => {
 
     return {
         data,
+        isError,
         isFetching,
         isLoaded,
-        isError,
-        refetch
+        refetch,
     };
 }

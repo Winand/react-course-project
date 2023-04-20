@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
-import { EmployeeCard } from "../../components/EmployeeCard"
-import { PageHeader } from "../../components/PageHeader"
+import { PageHeader } from "../../components/PageHeader";
+import { EmployeeCard } from "../../components/EmployeeCard";
 
 export const EmployeeCardPage = () => {
     const navigate = useNavigate();
     /* useCalllback, т. к. useNavigate - это хук (начинается с "use") */
     const onGoBack = useCallback(() => {
-        navigate(-1)
+        navigate(-1);
     }, [navigate]);
 
     return (<>

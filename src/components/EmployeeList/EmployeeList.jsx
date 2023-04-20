@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useEmployeeList as data, useEmployeeList } from '../../store/useEmployeeList'
+import { useEmployeeList } from '../../store/useEmployeeList';
 import { EmployeeListItem } from './EmployeeListItem';
 
 export const EmployeeList = ({onItemClick}) => {

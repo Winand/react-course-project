@@ -7,13 +7,13 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <MainPage/>
+      element: <MainPage/>,
     },
     {
       path: "employee/:employeeId",
-      element: <EmployeeCardPage/>
-    }
-  ])
+      element: <EmployeeCardPage/>,
+    },
+  ]);
 
   return (
     <div className="App">

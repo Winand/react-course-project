@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom'
-import { formatUserName } from '../../../utils'
-import './EmployeeListItem.css'
 import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { formatUserName } from '../../../utils';
+import './EmployeeListItem.css';
 
 export const EmployeeListItem = ({ user }) => {
     const navigate = useNavigate();

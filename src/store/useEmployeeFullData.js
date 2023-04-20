@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 const mock = [
     {
@@ -11,7 +11,7 @@ const mock = [
             office: "",
             cell: "",
             sms: ""
-        }
+        },
     },
     {
         id: 2,
@@ -23,9 +23,9 @@ const mock = [
             office: "555-678",
             cell: "903 586-789",
             sms: "903 586-789"
-        }
+        },
     },
-]
+];
 
 export const useEmployeeFullData = () => {
     const [data, setData] = useState(undefined);
@@ -36,7 +36,7 @@ export const useEmployeeFullData = () => {
     const getEmployee = (employeeId) => {
         setIsFetching(true);
 
-        const employee = mock.find((el) => el.id === Number(employeeId))
+        const employee = mock.find((el) => el.id === Number(employeeId));
 
         setTimeout(()=>{
             if(!employee) {
@@ -55,9 +55,9 @@ export const useEmployeeFullData = () => {
 
     return {
         data,
+        isError,
         isFetching,
         isLoaded,
-        isError,
         getEmployee,
     };
-};
+}

@@ -1,23 +1,22 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import { useCallback, useEffect, useState } from 'react';
-import { useEmployeeFullData as data, useEmployeeFullData } from "../../store/useEmployeeFullData"
-// import { EmployeeCardHeader } from "./EmployeeCardHeader"
+import { useParams } from 'react-router-dom';
+import { useEmployeeFullData as data, useEmployeeFullData } from "../../store/useEmployeeFullData";
+import "./EmployeeCard.css";
+import { useEffect } from 'react';
 import { formatUserName } from '../../utils'
-import "./EmployeeCard.css"
 
 export const EmployeeCard = () => {
     const {employeeId} = useParams();
 
-    const {data: employee, isFetching, isLoaded, getEmployee} = useEmployeeFullData()
+    // переименование data->employee https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#nested_object_and_array_destructuring
+    const {data: employee, isFetching, isLoaded, getEmployee} = useEmployeeFullData();
 
     useEffect(()=>{
         if(!employee && !isFetching && !isLoaded && employeeId) {
             getEmployee(employeeId);
         }
-    }, [data, isFetching, isLoaded, getEmployee, employeeId])
+    }, [data, isFetching, isLoaded, getEmployee, employeeId]);
 
     return (<div className="employee-page-wrapper">
-        {/* <EmployeeCardHeader onGoBack={onGoBack} /> */}
         {employee && (
         <div className="employee-info-wrapper">
             <div className='employee-badge'>
@@ -43,10 +42,10 @@ export const EmployeeCard = () => {
                 <div className="label">SMS</div>
                 <div className="value">{employee.phone.sms}</div>
             </div>
-        </div>
-        )}
+        </div>)}
 
         {(!employee && isFetching) && (<>Employee data loading...</>)}
-        {(!employee && !isFetching && isLoaded) && (<>No employee data</>)}
-    </div>)
+
+        {(!employee && !isFetching && isLoaded) && (<>No employee data.</>)}
+    </div>);
 }
