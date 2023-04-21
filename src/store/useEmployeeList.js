@@ -15,43 +15,44 @@ const mock = [
     },
 ];
 
+const myFetch = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (typeof mock === 'string') {
+                reject(new Error("Wrong data format"));
+            } else {
+                resolve(mock);
+            }
+        }, 500);
+    })
+}
+
 export const useEmployeeList = () => {
     const [data, setData] = useState(undefined);
     const [isFetching, setIsFetching] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isError, setIsError] = useState(false);
-
     const refetch = () => {
-            setIsFetching(true);
+        setIsLoaded(false)
+        setIsFetching(true);
+        myFetch()
+            .then((_data) => {
+                setData(_data);
+                setIsLoaded(true);
+            })
+            .catch(() => {
+                setData(undefined);
+                setIsLoaded(false);
+                setIsError(true);
+            })
+            .finally(() => {
+                setIsFetching(false);
+            });
+    }
 
-            setTimeout(()=>{
-                if(typeof mock === 'string') {
-                    setIsError(true);
-                    setIsLoaded(true);
-                    setIsFetching(false);
-                    setData(undefined);
-                } else {
-                    setIsError(false);
-                    setIsLoaded(true);
-                    setIsFetching(false);
-                    setData(mock);
-                }
-            }, 500);
-        }
-
-        if(!data && !isFetching && !isLoaded) {
-            refetch();
-        }
-
-        // return new Promise((resolve, reject)=>{
-        //     setTimeout(()=>{
-        //         if(typeof mock === 'string') {
-        //             reject('incorrect data');
-        //         }
-        //         setData(mock);
-        //         resolve(mock);
-        //     }, 1500);
-        // });
+    if(!data && !isFetching && !isLoaded && !isError) {
+        refetch();
+    }
 
     return {
         data,
@@ -59,5 +60,5 @@ export const useEmployeeList = () => {
         isFetching,
         isLoaded,
         refetch,
-    };
+    }
 }
