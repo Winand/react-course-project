@@ -24,10 +24,3 @@
 .employee-page-wrapper .employee-info-wrapper .employee-badge .user-info .employee-position {
     color: gray;
 }
-
-.employee-page-wrapper .employee-info-wrapper .info-item {
-    padding: 15px;
-    margin-bottom: 5px; /* чтобы не слипались */
-    border: solid #e3e3e3 1px;
-    border-radius: 5px;
-}
